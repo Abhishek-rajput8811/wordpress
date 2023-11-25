@@ -39,7 +39,7 @@ spec:
           persistentVolumeClaim:
             claimName: mysql-pv-claim  # Ensure the claimName matches
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #mysql-service.yaml
 apiVersion: v1
@@ -55,7 +55,7 @@ spec:
       targetPort: 3306
   selector:
     app: mysql
--------------------------------------------------------------------------------------------------------------------------------
+
 
 #mysql-persistent-volume.yaml
 apiVersion: v1
@@ -70,7 +70,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data/mysql"
-----------------------------------------------------------------------------------------------------------
+
 
 #mysql-persistent-volume-claim.yaml
 apiVersion: v1
@@ -85,7 +85,6 @@ spec:
     requests:
       storage: 3Gi
 
-----------------------------------------------------------------------------------------------------------------
 # wordpress-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -125,7 +124,7 @@ spec:
         - name: wordpress-persistent-storage  # Ensure the volume name matches
           persistentVolumeClaim:
             claimName: wordpress-pv-claim  # Ensure the claimName matches
------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #wordpress-service.yaml
 apiVersion: v1
@@ -143,7 +142,7 @@ spec:
       nodePort: 30000
   selector:
     app: wordpress
---------------------------------------------------------------------------------------------------------------------------------------------
+
 #wordpress-persistent-volume.yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -157,7 +156,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data/wordpress"
-----------------------------------------------------------------------------------------------------------------------------
+    
 #wordpress-persistent-volume-claim.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
